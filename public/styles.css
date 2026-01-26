@@ -1,0 +1,54 @@
+/*Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*Estilos*/
+@import url(styles/header.css);
+@import url(styles/main.css);
+@import url(styles/footer.css);
+
+/*Variáveis*/
+:root{
+
+    /*Cores*/
+    --preto: #0c0c0c;
+    --pretoClaro: #1b1b1b;
+    --branco: #ffffff;
+
+    /*Gradientes*/
+    --gradiente: linear-gradient(to bottom, var(--preto), var(--pretoClaro));
+
+    /*Fontes*/
+    --titulo: "Quicksand", sans-serif;
+    --texto: "Rubik", sans-serif;
+    --destacar: "Montserrat", sans-serif;
+
+}
+
+/*Regras*/
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: var(--titulo);
+}
+p, input, li{
+    font-family: var(--texto);
+}
+a, label, button, span{
+    font-family: var(--destacar);
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+img{
+    object-fit: cover;
+    object-position: center;
+}
