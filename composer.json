@@ -1,0 +1,19 @@
+{
+    "name": "matheus/php-web4",
+    "description": "Projeto prático do curso de php para web (formação 4/6)",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Matheus\\PhpWeb4\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "devMathArantes",
+            "email": "matheusoficial1411@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
