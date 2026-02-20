@@ -2,32 +2,57 @@
 
     require_once __DIR__ . "/../vendor/autoload.php";
 
-    // Captura o caminho ou define '/' como padrão se estiver vazio
     $caminho = $_SERVER['PATH_INFO'] ?? '/';
+    $metodo = $_SERVER['REQUEST_METHOD'];
 
-    if ($caminho === '/') {
+    if ($metodo === 'POST') {
 
-        require_once __DIR__ . "/../app/views/pages/home.php";
+        $controller = new Controller\VideoController(new MD\VideoDAO(MD\BancoPrincipal::conectar()));
 
-    } elseif ($caminho === '/formulario') {
+        switch ($caminho) {
+            case '/insertVideo':
+            
+                $controller->insertVideo(); 
+                break;
+            
+            case '/deleteVideo':
+            
+                $controller->deleteVideo();
+                break;
 
-        require_once __DIR__ . "/../app/views/pages/formulario.php";
-        
-    } elseif ($caminho === '/deleteVideo') {
+            case '/updateVideo':
+            
+                $controller->updateVideo();
+                break;
+            
+            default:
 
-        require_once __DIR__ . "/../app/controllers/excluirVideo.php";
+                http_response_code(404);
+                require_once __DIR__ . "/../app/views/erro404.php";
+                break;
+        }
+    } 
+    elseif ($metodo === 'GET') {
 
-    } elseif ($caminho === '/updateVideo') {
+        switch ($caminho) {
 
-        require_once __DIR__ . "/../app/controllers/editarVideo.php";
+            case '/':
 
-    } elseif ($caminho === '/insertVideo') {
+                $controller = new Controller\HomeController(new MD\VideoDAO(MD\BancoPrincipal::conectar()));
+                $controller->processaRequisicao(); 
+                break;
 
-        require_once __DIR__ . "/../app/controllers/novoVideo.php";
+            case '/formulario':
 
-    } else {
+                $controller = new Controller\FormController(new MD\VideoDAO(MD\BancoPrincipal::conectar()));
+                $controller->processaRequisicao(); 
+                break;
 
-        http_response_code(404);
-        require_once __DIR__ . "/../app/views/pages/erro404.php";
-    
+            default:
+
+                http_response_code(404);
+                require_once __DIR__ . "/../app/views/erro404.php";
+                break;
+
+        }
     }

@@ -5,7 +5,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "MD\\" : "app/models/"
+            "MD\\" : "app/models/",
+            "Controller\\" : "app/controllers/"
         }
     },
     "authors": [
