@@ -4,6 +4,7 @@ footer{
     color: var(--branco);
     flex-direction: column;
     gap: 2em;
+    animation: aparecer 0.5s ease-out forwards;
 }
 footer h2, footer, p{
     margin: 0;

@@ -1,0 +1,71 @@
+.formularioPd{
+    padding: 2em 1em;
+    flex-direction: column;
+    gap: 1em;
+    background-color: var(--azulEscuro);
+    width: 90%;
+    max-width: 50em;
+    color: var(--branco);
+    border-radius: 10px;
+    margin-bottom: 2em;
+    box-shadow: 5px 5px 10px var(--cinza);
+}
+.formularioPd input{
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 5px;
+    padding: 1em;
+    color: var(--branco);
+}
+.campoInput{
+    position: relative;
+    width: 100%;
+}
+.campoInput label{
+    position: absolute;
+    left: 1em;
+    top: 1em;
+    transition: all 0.2s;
+    padding: 0 0.2em;
+    background-color: var(--azulEscuro);
+    z-index: 1;
+    user-select: none;
+    color: var(--branco);
+}
+.campoInput input{
+    background-color: var(--azulEscuro);
+    border: 1px solid var(--cinza);
+    outline: none;
+    transition: all 0.3s;
+}
+.campoInput input:focus{
+    border: 2px solid var(--azul);
+}
+.campoInput input:focus + label{
+    top: -0.8em;
+    font-size: 0.7rem;
+    color: var(--azul);
+}
+.campoInput input::placeholder{
+    opacity: 0;
+    transition: all 0.3s;
+}
+.campoInput input:focus::placeholder{
+    opacity: 1;
+}
+.campoInput input:not(:placeholder-shown) + label{
+    top: -10px;
+}
+.formularioPd input[type="submit"]{
+  background-color: var(--cinza);
+  border: none;
+  transition: 1s;
+}
+.formularioPd input[type="submit"]:hover{
+  background-color: var(--azul);
+  transition: 1s;
+}
+.formularioPd input[type="reset"] {
+  background-color: transparent;
+  border: none;
+}

@@ -1,0 +1,59 @@
+.videoPrincipal{
+    border-radius: 5px;
+    width: 80%;
+    max-width: 50em;
+    height: 20em;
+}
+.videos{
+    width: 100%;
+    overflow-x: auto;
+    gap: 1em;
+    display: flex;
+    padding: 3em 1em;
+    list-style: none;
+}
+.videos iframe{
+    border-radius: 5px 5px 0 0;
+    width: 100%;
+    height: 10em;
+}
+.videos h3{
+    width: 100%;
+    text-align: center;
+    padding: 1em;
+    margin: 0;
+    background-image: var(--gradiente);
+    color: var(--branco);
+}
+.videos li{
+    min-width: 15em;
+    max-width: 15em;
+    flex-flow: row wrap;
+}
+.opcVideo{
+    width: 50%;
+}
+.opcVideo input{
+    width: 100%;
+    padding: 1em;
+    color: var(--branco);
+    border: none;
+    transition: 1s;
+}
+.opcVideo input:hover{
+    transition: 1s;
+}
+.excluir input{
+    border-radius: 0 0 5px 0;
+    background-color: var(--vermelhoErro);
+}
+.excluir input:hover{
+    background-color: var(--vermelhoHover);
+}
+.editar input{
+    border-radius: 0 0 0 5px;
+    background-color: var(--verdeSucesso);
+}
+.editar input:hover{
+    background-color: var(--verdeHover);
+}

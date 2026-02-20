@@ -14,7 +14,15 @@
     /*Cores*/
     --preto: #0c0c0c;
     --pretoClaro: #1b1b1b;
+    --cinzaEscuro: #424242;
+    --cinza: #808080;
     --branco: #ffffff;
+    --azul: #4293d4;
+    --azulEscuro: #0a203a;
+    --verdeSucesso: #4CAF50;
+    --verdeHover: #00b309;
+    --vermelhoErro: #f44336;
+    --vermelhoHover: #e70400;
 
     /*Gradientes*/
     --gradiente: linear-gradient(to bottom, var(--preto), var(--pretoClaro));
@@ -35,6 +43,7 @@ body{
 }
 h1, h2, h3, h4, h5, h6{
     font-family: var(--titulo);
+    font-weight: 350;
 }
 p, input, li{
     font-family: var(--texto);

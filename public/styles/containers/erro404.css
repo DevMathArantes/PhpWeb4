@@ -1,0 +1,25 @@
+.erro404{
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    background-image: var(--gradiente);
+    color: var(--branco);
+    gap: 2em;
+}
+.erro404 h1{
+    margin: 0;
+}
+.erro404 a{
+    border: 2px solid var(--branco);
+    padding: 0.5em;
+    width: 20em;
+    border-radius: 20px;
+    text-align: center;
+    color: var(--branco);
+    transition: 1s;
+}
+.erro404 a:hover{
+    background-color: var(--branco);
+    color: var(--preto);
+    transition: 1s;
+}

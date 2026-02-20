@@ -1,1 +1,17 @@
 @import url(containers/utils.css);
+@import url(containers/passarTxt.css);
+@import url(containers/aparecer.css);
+@import url(containers/videos.css);
+@import url(containers/formulario.css);
+@import url(containers/mensagens.css);
+@import url(containers/erro404.css);
+
+main{
+    flex-direction: column;
+    animation: aparecer 0.5s ease-out forwards;
+}
+main p, main h2{
+    padding:  0.5em 1em;
+    margin: 0;
+    text-align: center;
+}

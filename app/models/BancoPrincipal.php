@@ -1,6 +1,10 @@
 <?php
 
-    include __DIR__ . "/../../env/envConecta.php";
+    namespace MD;
+    
+    include __DIR__ . "/../../env/stringConexao.php";
+
+    use PDO;
 
     class BancoPrincipal{
         public static function conectar() : PDO {

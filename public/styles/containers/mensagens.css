@@ -1,0 +1,30 @@
+.mensagem{
+    animation: fadeOut 0.5s forwards;
+    animation-delay: 3s;
+    position: fixed;
+    top: 0; 
+    background-color: var(--preto);
+    width: 100%;
+    padding: 1em;
+    text-align: center;
+    z-index: 2;
+}
+.sucesso{
+    border-bottom: 2px solid var(--verdeSucesso);
+    color: var(--verdeSucesso);
+}
+.erro{
+    border-bottom: 2px solid var(--vermelhoErro);
+    color: var(--vermelhoErro);
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        visibility: visible;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
