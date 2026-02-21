@@ -1,58 +1,35 @@
 <?php
 
+    use Controller\Error404Controller;
+
     require_once __DIR__ . "/../vendor/autoload.php";
 
+    // Carrega as rotas
+    $rotas = require_once __DIR__ . '/../config/routes.php';
+
+    //Coletando o caminho (URL) e o método da requisição (GET, POST, etc)
     $caminho = $_SERVER['PATH_INFO'] ?? '/';
     $metodo = $_SERVER['REQUEST_METHOD'];
 
-    if ($metodo === 'POST') {
+    //Cria uma string que serve como chave para acessar o array de rotas
+    $chave = "$metodo|$caminho";
 
-        $controller = new Controller\VideoController(new MD\VideoDAO(MD\BancoPrincipal::conectar()));
+    //Verifica se a chave existe no array de rotas
+    if (array_key_exists($chave, $rotas)) {
 
-        switch ($caminho) {
-            case '/insertVideo':
-            
-                $controller->insertVideo(); 
-                break;
-            
-            case '/deleteVideo':
-            
-                $controller->deleteVideo();
-                break;
+        //Cria um array igual ao da rota identificada
+        [$classeController, $metodo, $videoDAO] = $rotas[$chave];
+        
+        //Instancia o controller adequado e chama o método correspondente
+        $controller = new $classeController($videoDAO);
+        $controller->$metodo();
 
-            case '/updateVideo':
-            
-                $controller->updateVideo();
-                break;
-            
-            default:
+    } else {
 
-                http_response_code(404);
-                require_once __DIR__ . "/../app/views/erro404.php";
-                break;
-        }
-    } 
-    elseif ($metodo === 'GET') {
+        //A rota é desconhecida, então instanciamos o controller de erro 404
+        [$classeController, $metodo, $videoDAO] = $rotas['DEFAULT'];
+        $controller = new $classeController($videoDAO);
+        http_response_code(404);
+        $controller->$metodo();
 
-        switch ($caminho) {
-
-            case '/':
-
-                $controller = new Controller\HomeController(new MD\VideoDAO(MD\BancoPrincipal::conectar()));
-                $controller->processaRequisicao(); 
-                break;
-
-            case '/formulario':
-
-                $controller = new Controller\FormController(new MD\VideoDAO(MD\BancoPrincipal::conectar()));
-                $controller->processaRequisicao(); 
-                break;
-
-            default:
-
-                http_response_code(404);
-                require_once __DIR__ . "/../app/views/erro404.php";
-                break;
-
-        }
     }
